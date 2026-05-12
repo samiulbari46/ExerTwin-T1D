@@ -1,0 +1,74 @@
+% ============================================================================
+% Exercise_1day_moderate.scn
+% UVa/Padova T1DMS Scenario File - Exercise Integration Example
+%
+% SCENARIO: 1 day simulation with:
+%   - 3 meals + 1 evening snack (open loop)
+%   - 1 moderate exercise session at 18:00 for 60 minutes
+%   - Closed loop begins at simulation start (t=0)
+%
+% KEY PRINCIPLE: The T1DMS scenario file handles MEALS and INSULIN only.
+% Exercise is NOT a scenario-file variable — it is handled entirely by the
+% ctrlsetup_exercise.m controller (via ctrller.exercise_sessions and
+% ctrller.SImult_profile). This is because the simulator has no native
+% exercise block in v3.2.
+%
+% The scenario file and ctrlsetup must share the SAME time reference:
+%   t=0 corresponds to simToD (time of day at start of simulation).
+%
+% TIMELINE (minutes from t=0, where t=0 = 07:00):
+%   t=0    = 07:00  (simulation start)
+%   t=60   = 08:00  Breakfast (45g CHO)
+%   t=300  = 12:00  Lunch (70g CHO)
+%   t=660  = 17:00  START EXERCISE (60 min moderate, 50% VO2max)
+%                   ** defined in ctrlsetup.m, NOT here **
+%   t=720  = 18:00  END EXERCISE
+%   t=780  = 20:00  Dinner (60g CHO) -- 1h after exercise ends
+%   t=960  = 23:00  Evening snack (20g CHO)
+%   t=1440 = 07:00  End of simulation (24h)
+%
+% MEAL TIMING NOTE:
+%   Schedule meals AROUND exercise - not DURING exercise.
+%   Minimum 60 min gap between meals (T1DMS requirement).
+%   First meal at least 60 min after simulation start.
+%
+% ============================================================================
+
+simulation info
+%Tsimul=1440
+%QTsimul=min
+
+% Time of day at simulation start
+% 420 minutes = 07:00 (7 hours * 60 minutes)
+%simToD=420
+
+% Initial blood glucose (leave empty for subject-specific fasting BG)
+% %BGinit=120
+
+% ============================================================================
+% MEALS
+% Times are in HOURS from start of simulation (QTmeals=hour)
+% t=0 corresponds to simToD (07:00 in this example)
+%
+%  t=1h  = 08:00  Breakfast   45g CHO
+%  t=5h  = 12:00  Lunch       70g CHO
+%  t=13h = 20:00  Dinner      60g CHO  (1h after exercise ends at t=12h)
+%  t=16h = 23:00  Snack       20g CHO
+%
+% IMPORTANT: Exercise (t=11h to t=12h) is NOT listed here.
+% Exercise IS handled in ctrlsetup.m via ctrller.exercise_sessions.
+% ============================================================================
+meals info
+%Tmeals=[60 300 780 960]
+%QTmeals=min
+%Ameals=[45 70 60 20]
+%Dmeals=[15]
+%Qmeals=total
+
+% ============================================================================
+% OPEN LOOP INSULIN (used during open loop phase only)
+% Subject-specific basal + optimal bolus (Quest-based)
+% ============================================================================
+Open loop insulin info
+%Qbasal=quest
+%OB=on
