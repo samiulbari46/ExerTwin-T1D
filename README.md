@@ -173,7 +173,7 @@ All scenarios: open loop, 1440-min simulation, 100 virtual adults, CR = 15, Q_ba
 
 | Scenario | Variable | Levels | Exercise state | Primary parameters tested |
 |---|---|---|---|---|
-| S1 | Intensity | rest, 10%, 25%, 50%, 60%, 75%, 90% VO₂max | Aerobic, 60 min, 17:00 | beta_aer, tau_on, tau_post, VO2max |
+| S1 | Intensity | rest, 10%, 25%, 50%, 60%, 75%, 90% VO₂max | Non-Aerobic/Aerobic, 60 min, 17:00 | beta_aer, tau_on, tau_post, VO2max |
 | S2 | Duration | 15, 30, 45, 60, 75, 90, 105, 120 min | Aerobic, 50%, 16:00 - 18:00 | tau_post, Fc01, tail–meal interaction |
 | S3 | Bolus modulation | ×0.4 – ×1.6 (6 levels) | Rest | SI, kd, ka2 |
 | S4 | CHO modulation | ×0.7 – ×1.3 (6 levels) | Rest | kempt, kabs, Ra(t) |
