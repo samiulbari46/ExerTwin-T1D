@@ -2,7 +2,7 @@
 
 **An exercise-aware digital twin framework for personalised glucose dynamics identification and simulation.**
 
-PHYT1D extends the Dalla Man (2014) glucose–insulin ODE skeleton with an analytical exercise state function **Φ(u, d, t)** that modulates insulin sensitivity *SI*, endogenous glucose production *EGP*, non-insulin-mediated muscle uptake *Fc01*, and gastric emptying *kempt* as explicit functions of declared exercise intensity (%VO₂max), duration, and elapsed time — **no wearables required**. Eight core glucose–insulin parameters are identified per patient from CGM, insulin, and meal data via adaptive MCMC; six additional exercise-specific parameters — including the novel post-exercise SI decay constant *τ_post* — are identified from exercise-window CGM. Validated against the UVa/Padova T1D Simulator (T1DS). Pass threshold: **MARD < 15%** (Cappon et al. 2023).
+PHYT1D extends the Dalla Man (2014) glucose–insulin ODE skeleton with an analytical exercise state function **Φ(u, d, t)** that modulates insulin sensitivity *SI*, endogenous glucose production *EGP*, non-insulin-mediated muscle uptake *Fc01*, and gastric emptying *kempt* as explicit functions of declared exercise intensity (%VO₂max), duration, and elapsed time — **no wearables required**. Eight core glucose–insulin parameters are identified per patient from CGM, insulin, and meal data via adaptive MCMC; six additional exercise-specific parameters — including the novel post-exercise SI decay constant *τ_post* — are identified from exercise-window CGM. Validated against the UVa/Padova T1D Simulator (T1DS). Pass threshold: **MARD < 10%** (Cappon et al. 2023).
 
 > ⚠️ **Research use only.** Not a medical device. Not intended for clinical decision-making.
 
@@ -184,7 +184,7 @@ All scenarios: open loop, 1440-min simulation, 100 virtual adults, CR = 15, Q_ba
 
 ## Evaluation Metrics
 
-- **MARD** (Cappon 2023 eq. 9) — pass threshold < 15%
+- **MARD** (Cappon 2023 eq. 9) — pass threshold < 10%
 - **RMSE** / **gRMSE** [mg/dL]
 - **Time-in-Range** — TIR (70–180), TBR (<70), TAR (>180) (Battelino 2019)
 - **Clarke Error Grid Analysis** (Clarke 1987)
