@@ -76,7 +76,7 @@ PHYT1D operates in three phases:
 | ODE skeleton | Dalla Man 2014 glucose–insulin (10 states) | Dalla Man 2014 |
 | SC insulin PK | 3-compartment Schiavon; *k_d, k_a2* identified | Schiavon 2018  |
 | CHO absorption | Nonlinear gastric emptying; *k_empt, k_abs* identified | Dalla Man 2006  |
-| Exercise Φ(u,d,t) | Analytical; %VO₂max + duration → ODE increments | Riddell 2017 ; Yardley 2013  |
+| Exercise Φ(u,d,t) | Analytical; %VO₂max + duration → ODE increments | Riddell 2017 ; Yardley 2013, Alkhateeb 2021  |
 | Post-exercise tail | Exponential SI decay; *τ_post* identified | Hinshaw 2013  |
 | MCMC | Adaptive SCMH; t-copula posterior; 2000 samples | Cappon 2023 ; Gilks 1996  |
 
@@ -223,6 +223,7 @@ Key references:
 -  Schiavon M et al. Modeling SC absorption of fast-acting insulin. *IEEE Trans Biomed Eng* 2018;65(9):2079–2086.
 -  Dalla Man C et al. System model of oral glucose absorption. *IEEE Trans Biomed Eng* 2006;53(12):2472–2478.
 -  Yardley JE et al. Resistance vs aerobic exercise: acute effects on glycemia in T1D. *Diabetes Care* 2013;36(3):537–542.
+-  Alkhateeb et al. Modelling glucose dynamics during moderate exercise in individuals with type 1 diabetes. Plos one, 16(3), e0248280. 2021
 -  Hinshaw L et al. Diurnal pattern of insulin action in T1D. *Diabetes* 2013;62(7):2223–2229.
 -  Van de Poppe T et al. Reference values for cardiorespiratory fitness — LowLands Fitness Registry. 2021.
 -  Battelino T et al. Clinical targets for CGM data interpretation. *Diabetes Care* 2019;42(8):1593–1603.
