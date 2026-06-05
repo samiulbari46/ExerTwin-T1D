@@ -1,4 +1,4 @@
-# PHYT1D — Physiological Twin for Type 1 Diabetes
+# ExerTwin-T1D — Exercise-aware Digital Twin for Type 1 Diabetes
 
 **An exercise-aware digital twin framework for personalised glucose dynamics identification and simulation.**
 
