@@ -2,7 +2,7 @@
 
 **An exercise-aware digital twin framework for personalised glucose dynamics identification and simulation.**
 
-PHYT1D extends the Dalla Man (2014) glucose–insulin ODE skeleton with an analytical exercise state function **Φ(u, d, t)** that modulates insulin sensitivity *SI*, endogenous glucose production *EGP*, non-insulin-mediated muscle uptake *Fc01*, and gastric emptying *kempt* as explicit functions of declared exercise intensity (%VO₂max), duration, and elapsed time — **no wearables required**. Eight core glucose–insulin parameters are identified per patient from CGM, insulin, and meal data via adaptive MCMC; six additional exercise-specific parameters — including the novel post-exercise SI decay constant *τ_post* — are identified from exercise-window CGM. Validated against the UVa/Padova T1D Simulator (T1DS). Pass threshold: **MARD < 10%** (Cappon et al. 2023).
+ExerTwin-T1D extends the Dalla Man (2014) glucose–insulin ODE skeleton with an analytical exercise state function **Φ(u, d, t)** that modulates insulin sensitivity *SI*, endogenous glucose production *EGP*, non-insulin-mediated muscle uptake *Fc01*, and gastric emptying *kempt* as explicit functions of declared exercise intensity (%VO₂max), duration, and elapsed time — **no wearables required**. Eight core glucose–insulin parameters are identified per patient from CGM, insulin, and meal data via adaptive MCMC; six additional exercise-specific parameters — including the novel post-exercise SI decay constant *τ_post* — are identified from exercise-window CGM. Validated against the UVa/Padova T1D Simulator (T1DS). Pass threshold: **MARD < 10%** (Cappon et al. 2023).
 
 > ⚠️ **Research use only.** Not a medical device. Not intended for clinical decision-making.
 
@@ -39,7 +39,7 @@ PHYT1D extends the Dalla Man (2014) glucose–insulin ODE skeleton with an analy
 ## Repository Structure
 
 ```
-PHYT1D/
+ExerTwin-T1D/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
@@ -65,7 +65,7 @@ PHYT1D/
 
 ## Model Architecture
 
-PHYT1D operates in three phases:
+ExerTwin-T1D operates in three phases:
 
 1. **Phase 1 — Core identification (Window A).** Eight glucose–insulin parameters identified from meal-only CGM segments (≥ 6 h, ≥ 4 h post-bolus) via adaptive single-component Metropolis–Hastings, posterior fitted with a t-copula.
 2. **Phase 2 — Exercise identification (Window B).** Six exercise parameters identified from the exercise bout + 6 h post-exercise CGM, conditioned on Phase 1 posteriors.
@@ -87,8 +87,8 @@ PHYT1D operates in three phases:
 **Requirements:** Python 3.11+ and JupyterLab.
 
 ```bash
-git clone https://github.com/<your-username>/PHYT1D.git
-cd PHYT1D
+git clone https://github.com/<your-username>/ExerTwin-T1D.git
+cd ExerTwin-T1D
 python -m venv .venv
 source .venv/bin/activate          # on Windows: .venv\Scripts\activate
 pip install -r requirements.txt
@@ -198,11 +198,11 @@ All scenarios: open loop, 1440-min simulation, 100 virtual adults, CR = 15, Q_ba
 
 ## Citation
 
-If you use PHYT1D in your research, please cite:
+If you use ExerTwin-T1D in your research, please cite:
 
 ```bibtex
-@techreport{phyt1d2025,
-  title  = {PHYT1D: Physiological Twin for Type 1 Diabetes —
+@techreport{ExerTwin-T1D2025,
+  title  = {ExerTwin-T1D: Physiological Twin for Type 1 Diabetes —
             An Exercise-Aware Digital Twin Framework},
   author = {<Samiul Bari>},
   year   = {2025},
@@ -234,4 +234,4 @@ Key references:
 
 This project is released under the MIT License — see [`LICENSE`](LICENSE) for details.
 
-**Disclaimer.** PHYT1D is research software. It is not a medical device, has not been evaluated by any regulatory body, and must not be used to make clinical or therapeutic decisions.
+**Disclaimer.** ExerTwin-T1D is research software. It is not a medical device, has not been evaluated by any regulatory body, and must not be used to make clinical or therapeutic decisions.
